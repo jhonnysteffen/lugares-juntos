@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Descobrindo Lugares Juntos ✨</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+            padding: 30px;
+            color: #37474f;
+        }
+        h1 {
+            color: #00796b;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 121, 107, 0.2);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #b2dfdb;
+            background-color: #f9fbe7;
+        }
+        button {
+            background-color: #4db6ac;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #00796b;
+        }
+        .lugar {
+            background-color: #e0f2f1;
+            padding: 15px;
+            margin: 15px auto;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 150, 136, 0.2);
+            max-width: 600px;
+        }
+        .lugar strong {
+            font-size: 1.2em;
+            color: #004d40;
+        }
+        h2 {
+            text-align: center;
+            color: #00695c;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-style: italic;
+            color: #607d8b;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌍 Lugares pra Gente Descobrir Juntos</h1>
+    <form action="/adicionar" method="post">
+        <label>📍 Nome do local:</label>
+        <input type="text" name="nome" required>
+        <label>🍽️ O que gostaria de experimentar lá?</label>
+        <input type="text" name="comida" required>
+        <label>🧃 O que não pode faltar nesse rolê?</label>
+        <textarea name="essencial" required></textarea>
+        <button type="submit">➕ Adicionar à nossa listinha</button>
+    </form>
+    <h2>📌 Nossas ideias de passeio:</h2>
+    {% for lugar in lugares %}
+        <div class="lugar">
+            <strong>📍 {{ lugar.nome }}</strong><br>
+            🍴 Quer experimentar: {{ lugar.comida }}<br>
+            ✨ Não pode faltar: {{ lugar.essencial }}
+        </div>
+    {% endfor %}
+    <div class="footer">
+        Começando uma jornada de descobertas boas — quem sabe onde isso vai dar? 😉
+    </div>
+</body>
+</html>
